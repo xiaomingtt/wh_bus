@@ -1,0 +1,21 @@
+<scroll-view scroll-y style="width:100%;height:calc(100vh-120rpx);">
+  <block wx:for="{{lists}}" wx:key="index">
+    <view data-id='{{item.id}}' style="width:96%;height:150rpx;margin:10rpx 2%;border-bottom:1rpx solid #8d8d8d;" bindtap='showgonggao'>
+      <view style="width:100%;height:105rpx;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;overflow: hidden;">{{item.title}}</view>
+      <view style="width:100%;height:35rpx;font-size:28rpx;">{{item.updateTime}}</view>
+    </view>
+  </block>
+</scroll-view>
+
+
+<view wx:if="{{showgg}}" style="position:fixed;z-index:99999;width:90%;height:calc(80vh);top:calc(10vh);left:37.5rpx;border-radius:35rpx;background-color:#ddd;">
+
+  <view style="background-color:#fff;width:55rpx;height:55rpx;float:right;margin:5rpx 10rpx;border-radius:35rpx;text-align:center;" bindtap='closegg'>X</view>
+
+  <scroll-view scroll-y style="clear:both;width:96%;height:calc(65vh);margin:10rpx 2%;">
+    {{ggbody}}
+  </scroll-view>
+  <view style="color:#00f;width:100%;height:calc(4vh);font-size:32rpx;text-align:center;margin:calc(2vh) auto;" bindtap='closegg'>
+    <button size='mini' type='primary'>确定</button>
+  </view>
+</view>

@@ -1,0 +1,18 @@
+<import src="/wxSearch/wxSearch.wxml" />
+
+<view class="wxSearch-section">
+  <view class="wxSearch-pancel">
+    <input focus bindinput="wxSearchInput" bindfocus="wxSerchFocus" value="{{wxSearchData.value}}" bindblur="wxSearchBlur" class="wxSearch-input" placeholder="1路" maxlength='4' value='{{searchtext}}' />
+    <button class="wxSearch-button" bindtap="wxSearchFn" size="mini" plain="true">搜索</button>
+  </view>
+</view>
+<template is="wxSearch" data="{{wxSearchData}}" />
+
+<view class="itemview">
+  <block wx:for="{{searchList}}" wx:key="index">
+    <view style="font-size:45rpx;width:100%;height:55rpx;margin:15rpx 5rpx;border-bottom:1rpx solid #8d8d8d;overflow:auto;" data-id="{{item.id}}" data-name="{{item.lineName}}" bindtap='gotoXianLu'>
+    {{item.lineName}}:{{item.startStationName}}-{{item.endStationName}}
+    </view>
+  </block>
+</view>
+<view wx:if="{{kong}}" style="width:100%;height:200rpx;margin:100rpx auto;text-align:center;">对不起，您搜索的线路不存在！</view>

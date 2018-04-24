@@ -1,0 +1,14 @@
+<map id="mmap" longitude="{{j}}" latitude="{{w}}" scale="15" markers="{{imarkers}}" show-location polyline="{{polyline}}">
+</map>
+<view style="width:100vw;height:50vh;">
+  <view style="width:100vw;height:4vh;background-color:#8d8d8d;">
+    <text>大约{{distance}}</text>
+    <text>用时{{cost}}</text>
+  </view>
+  <scroll-view scroll-y style="width:100vw;height:46vh;">
+    <view class="text_box" wx:for="{{steps}}" wx:for-item="i" wx:key="index">
+      {{i.instruction}}
+    </view>
+  </scroll-view>
+
+</view>

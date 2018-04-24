@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/buxing/buxing",
+    "pages/zhan/zhan",
+    "pages/yijian/yijian",
+    "pages/xianlu/xianlu",
+    "pages/search/search",
+    "pages/gao/gao",
+    "pages/ditu/ditu",
+    "pages/che/che",
+    "pages/sousuo/sousuo",
+    "pages/souxianlu/souxianlu",
+    "pages/zhanxian/zhanxian"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#8d8d8d",
+    "selectedColor": "#1296db",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "线路",
+        "iconPath": "images/x0.png",
+        "selectedIconPath": "images/x1.png"
+      },
+      {
+        "pagePath": "pages/zhan/zhan",
+        "text": "站点",
+        "iconPath": "images/z0.png",
+        "selectedIconPath": "images/z1.png"
+      },
+      {
+        "pagePath": "pages/yijian/yijian",
+        "text": "建议",
+        "iconPath": "images/y0.png",
+        "selectedIconPath": "images/y1.png"
+      }
+    ]
+  }
+}

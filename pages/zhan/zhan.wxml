@@ -1,0 +1,35 @@
+<view class="flex-container">
+  <view class="flex-item" bindtap='sousuozhandian'>
+    <view>
+      <image src="../../images/sousuozhandian.png"></image>
+    </view>
+    <view>
+      站点搜索
+    </view>
+  </view>
+  <view class="flex-item" bindtap='dituxuandian'>
+    <view>
+      <image src="../../images/dituxuandian.png"></image>
+    </view>
+    <view>
+      地图选点 </view>
+  </view>
+  <view class="flex-item" bindtap='bendidingwei'>
+    <view>
+      <image src="../../images/dingwei.png"></image>
+    </view>
+    <view>
+      本地定位 </view>
+  </view>
+</view>
+
+<view class="title">历史记录</view>
+
+<scroll-view scroll-y style="width:96%;height:calc(70vh);margin:3rpx 2%;">
+  <block wx:for="{{lishi}}" wx:key="index">
+    <view style="font-weight:bold; font-size:32rpx;width:100%;height:45rpx;margin:15rpx 5rpx;border-bottom:1rpx solid #8d8d8d;overflow:auto;" data-id="{{index}}" bindtap='gotoXianLu'>
+      {{item.name}}
+    </view>
+
+  </block>
+</scroll-view>

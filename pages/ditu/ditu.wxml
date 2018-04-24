@@ -1,0 +1,4 @@
+<map id="map" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" markers="{{markers}}" show-location bindcallouttap="dianjiqipao">
+</map>
+<button wx:if="{{!dwqx}}" bindtap='regetdw'>重新获取权限</button>
+<view style="font-size:28rpx;">车辆信息每20秒更新一次。仅供参考具体信息以实际运营车辆为准。点击标记点可查看站点名。点击弹出的站点名，可查看步行指引。</view>

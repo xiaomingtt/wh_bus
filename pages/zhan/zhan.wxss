@@ -1,0 +1,29 @@
+.flex-container {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  width: 750rpx;
+  height: 160rpx;
+  background-color: lightgrey;
+}
+
+.flex-item {
+  width: 150rpx;
+  height: 140rpx;
+  margin: 10rpx;
+  text-align: center;
+  font-size:30rpx;
+}
+
+.flex-item image {
+  margin: 10rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+.title {
+  border-bottom: #aaa solid 1rpx;
+  margin: 30rpx 10rpx;
+  color: #888;
+  font-size: 42rpx;
+}
