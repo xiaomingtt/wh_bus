@@ -5,8 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    lat:0,
-    lon:0,
+    lat: 0,
+    lon: 0,
     zhongxin: '',//搜索的名称
     geshu: 0,//附近站点数量
     list: [],//返回的数据
@@ -59,8 +59,8 @@ Page({
           geshu: shuzu.length,
           list: shuzu,
           gg: res.data.gg,
-          lat:lat,
-          lon:lon
+          lat: lat,
+          lon: lon
         })
       }
     })
@@ -125,35 +125,70 @@ Page({
       url: '../zhanxian/zhanxian?p=' + last
     })
   },
-  gobuxing:function(e){
-      var that=this 
-      var d=[]
-      var id=e.currentTarget.dataset.id
-      var shuzu = this.data.list
-      var liebiao = shuzu[id]
-      d.push({
-        width: 40,
-        height: 40,
-        iconPath: "/images/p.png",
-        id: "10000",
-        latitude: liebiao.lat,
-        longitude: liebiao.lon,
-        callout: {
-          content: liebiao.name,
-          color: "#b5b1b1",
-          fontSize: 12,
-          borderRadius: 15,
-          bgColor: "#262930",
-          padding: 10,
-          display: 'ALWAYS'
-        }
-      })
+  gobuxing: function (e) {
+    var that = this
+    var d = []
+    var id = e.currentTarget.dataset.id
+    var shuzu = this.data.list
+    var liebiao = shuzu[id]
+    var s = JSON.stringify(liebiao)
+    d.push({
+      width: 40,
+      height: 40,
+      iconPath: "/images/p.png",
+      id: "10000",
+      latitude: liebiao.lat,
+      longitude: liebiao.lon,
+      callout: {
+        content: liebiao.name,
+        color: "#b5b1b1",
+        fontSize: 12,
+        borderRadius: 15,
+        bgColor: "#262930",
+        padding: 10,
+        display: 'ALWAYS'
+      }
+    })
+
+    wx.getLocation({
+      type: 'gcj02',
+      success: function (res) {
+
+
+        wx.navigateTo({
+          url: '../buxing/buxing?data=' + JSON.stringify(d[0]) + "&from=zhan&lat=" + res.latitude + "&lon=" + res.longitude + '&list=' + s
+        })
+      },
+      fail: function (res) {
+        that.setData({ dwqx: false })
+        wx.showModal({
+          title: '提示',
+          content: '无定位权限无法使用此功能。是否重新设置权限？',
+          success: function (res) {
+            if (res.confirm) {
+              that.regetdw()
+            } else if (res.cancel) {
+              console.log('用户点击取消')
+              return;
+            }
+          }
+        })
+      }
+    })
 
 
 
-      wx.navigateTo({
-        url: '../buxing/buxing?data=' + JSON.stringify(d[0]) + "&from=zhan&lat=" + that.data.lat + "&lon=" + that.data.lon
-      })
-
+  },
+  regetdw: function (e) {
+    //重新获取权限
+    wx.openSetting({
+      success: (res) => {
+        wx.showToast({
+          title: '成功',
+          icon: 'success',
+          duration: 2000
+        })
+      }
+    })
   }
 })

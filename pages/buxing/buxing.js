@@ -15,7 +15,9 @@ Page({
     distance: '',//距离
     cost: '',//时间
     polyline: [],//线路
-    steps: {}//步行信息
+    steps: {},//步行信息
+    zhan: [],//站点及其附近线路信息，用于跳转到选择线路页面
+    tishi:''
   },
 
   /**
@@ -35,27 +37,8 @@ Page({
       var dian = JSON.parse(options.data)
       var lat = options.lat
       var lon = options.lon
-      wx.getSetting({
-        success(res) {
-          if (res.authSetting['scope.userLocation']) {
-            //如果有定位权限
-
-          }else{
-            wx.showModal({
-              title: '提示',
-              content: '无定位权限，无法使用此功能。',
-              showCancel:false ,
-              success: function (res) {
-                if (res.confirm) {
-                  wx.navigateBack({
-                    delta: 1
-                  })
-                }
-              }
-            })
-          }
-        }
-      })
+      var zhanxiang = JSON.parse(options.list)
+      that.setData({ zhan: zhanxiang,tishi:'(点击站点名，查看其附近线路。)' })
     }
 
     var biaoji = that.data.imarkers
@@ -178,6 +161,18 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
+
+  },
+  dianjiqipao: function (e) {
+    var id = e.markerId
+    if (id == '10000') {
+      var s = this.data.zhan
+      s = JSON.stringify(s)
+      wx.navigateTo({
+        url: '../zhanxian/zhanxian?p=' + s
+      })
+    }
+
 
   }
 })

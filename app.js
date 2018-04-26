@@ -65,7 +65,7 @@ App({
   },
 
   globalData: {
-    dizhi: 'https://***/GJC/',
+    dizhi: 'https://kkk.gg/GJC/',
     screenwidth: 0,
     screenheight: 0
   },
