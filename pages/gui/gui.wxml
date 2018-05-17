@@ -1,0 +1,67 @@
+<include src="/daohang/dh.wxml" />
+<view class="gonggao">
+  <image src='../../images/lb.png'></image>
+  <text>本信息仅供参考！</text>
+</view>
+<scroll-view wx:if="{{showitem}}" class="scrollview" scroll-y>
+  <view class="yuanshiqidian">
+    <block wx:for="{{segments}}" wx:key="{{index}}">
+      <view class="gxitemview">
+        <view class="gxitemimg">
+          <image src="{{item.img}}"></image>
+        </view>
+        <view class="gxitemtxt" bindtap='gotoxianlu' data-id='{{item.busid}}' data-mo="{{item.mode}}">
+          {{item.txt}}
+        </view>
+        <view wx:if="{{item.mode=='bus'||item.mode=='buxing'}}" class="gxitemyou" bindtap='gxshowxinxi' data-id="{{index}}" data-moe="{{item.mode}}">
+          <image src="{{current==index?'../../images/up.png':'../../images/down.png'}}"></image>
+        </view>
+      </view>
+      <view wx:if="{{current==index}}" class="gxmoreview">
+        <view wx:if="{{item.mode=='bus'}}">
+          <block wx:for="{{item.bus}}" wx:for-item="list" wx:key="{{index}}">
+            <view class="gxmoreviewlist">
+              {{list.action}}:{{list.name}}
+            </view>
+          </block>
+          <view class="gxotherbus">
+            {{item.otherbus}}
+          </view>
+        </view>
+        <view wx:if="{{item.mode=='buxing'}}">
+          <block wx:for="{{item.walk}}" wx:for-item="list" wx:key="{{index}}">
+            <view class="gxmoreviewlist">
+              {{index+1}}:{{list}}
+            </view>
+          </block>
+        </view>
+      </view>
+    </block>
+  </view>
+
+
+
+
+</scroll-view>
+<view wx:if="{{showmap}}" class="mapview">
+  <map id="mmap" longitude="{{j}}" latitude="{{w}}" scale="16" markers="{{markers}}" show-location polyline="{{polyline}}" bindcallouttap="dianjiqipao">
+  </map>
+</view>
+<view class="bottomview">
+  <view class="bottomanniu" bindtap='qiehuanview' data-id='0'>
+    <view>
+      <image src="{{showitem?'../../images/list1.png':'../../images/list0.png'}}"></image>
+    </view>
+    <view style="{{showitem?'color:#1296db;':'color:#8d8d8d;'}}">
+      概览
+    </view>
+  </view>
+  <view class="bottomanniu" bindtap='qiehuanview' data-id='1'>
+    <view>
+      <image src="{{showmap?'../../images/m1.png':'../../images/m0.png'}}"></image>
+    </view>
+    <view style="{{showmap?'color:#1296db;':'color:#8d8d8d;'}}">
+      地图
+    </view>
+  </view>
+</view>

@@ -1,10 +1,10 @@
-<textarea placeholder="请输入您的意见或建议" auto-focus maxlength='-1' bindinput='inputyijian' style="width:96%;height:calc(30vh);margin:10rpx 2%;border:solid 1rpx #8d8d8d;" value="{{yijian}}" />
+<textarea class="yijian" placeholder="请输入您的意见或建议" auto-focus maxlength='-1' bindinput='inputyijian' value="{{yijian}}" />
 
-<input placeholder='联系方式' confirm-type='done' bindinput='inputdh' style="width:96%;height:calc(7vh);margin:10rpx 2%;border:solid 1rpx #8d8d8d;" value='{{dh}}' />
-<button type="primary" style="width:96%;margin:10rpx 2%;" bindtap='tijiao'>提交</button>
+<input class="lianxi" placeholder='联系方式' confirm-type='done' bindinput='inputdh' value='{{dh}}' />
+<button class="tijiao" type="primary" bindtap='tijiao'>提交</button>
 
 
-<view style="position:fixed;bottom:5rpx;left:5rpx;width:740rpx;height:100rpx;text-align:center;">
-  <view style="color:#a9a9a9;font-size:35rpx;">© 文登区珂酷网络工作室</view>
-  <view style="color:#a9a9a9;font-size:25rpx;">小程序开发：15244001068</view>
+<view class="banquan">
+  <view class="abc">© 文登区珂酷网络工作室</view>
+  <view class="abb">小程序开发：15244001068</view>
 </view>

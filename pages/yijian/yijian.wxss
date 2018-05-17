@@ -1,1 +1,37 @@
-/* pages/yijian/y.wxss */
+.yijian {
+  width: 96%;
+  height: calc(30vh);
+  margin: 10rpx 2%;
+  border: solid 1rpx #8d8d8d;
+}
+
+.lianxi {
+  width: 96%;
+  height: calc(7vh);
+  margin: 10rpx 2%;
+  border: solid 1rpx #8d8d8d;
+}
+
+.tijiao {
+  width: 96%;
+  margin: 10rpx 2%;
+}
+
+.banquan {
+  position: fixed;
+  bottom: 5rpx;
+  left: 5rpx;
+  width: 740rpx;
+  height: 100rpx;
+  text-align: center;
+}
+
+.abc {
+  color: #a9a9a9;
+  font-size: 35rpx;
+}
+
+.abb {
+  color: #a9a9a9;
+  font-size: 25rpx;
+}

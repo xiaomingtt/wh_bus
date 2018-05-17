@@ -7,10 +7,23 @@ Page({
   data: {
     ming: '',//站点名
     num: 0,//线路数量
-    list: []//线路列表
+    list: [],//线路列表
+    showdh: true
 
   },
-
+  closedaohang: function () {
+    this.setData({ showdh: false })
+  },
+  gotowc: function () {
+    wx.navigateToMiniProgram({
+      appId: 'wx8e581a2d9a18fd3b'
+    })
+  },
+  gotoyijian: function () {
+    wx.navigateTo({
+      url: '../yijian/yijian'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

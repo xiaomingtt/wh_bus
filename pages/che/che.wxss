@@ -1,1 +1,51 @@
-/* pages/che/che.wxss */
+.cheview {
+  font-size: 28rpx;
+  color: 515151;
+  width: 96%;
+  margin: auto 2%;
+}
+
+.chetitle {
+  width: 96%;
+  height: 45rpx;
+  margin: 8rpx 2%;
+  background-color: #ffc;
+}
+
+.cheitem {
+  font-size: 45rpx;
+  width: 100%;
+  height: 165rpx;
+  margin: 15rpx 5rpx;
+  border-bottom: 1rpx solid #8d8d8d;
+  overflow: auto;
+}
+
+.cheleft {
+  float: left;
+  width: 25%;
+  height: 100%;
+}
+
+.cheimage {
+  width: 80rpx;
+  height: 80rpx;
+  margin: 10rpx auto;
+}
+
+.cheimage image {
+  width: 100%;
+  height: 100%;
+}
+
+.checarid {
+  text-align: center;
+  font-size: 32rpx;
+}
+
+.cheright {
+  float: left;
+  width: 73%;
+  height: 100%;
+  font-size: 40rpx;
+}

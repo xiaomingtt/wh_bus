@@ -7,9 +7,22 @@ Page({
   data: {
     xinxi: [],
     chenum: 0,//当前线路运营车辆数量
-    cheinfo: []
+    cheinfo: [],
+    showdh: true
   },
-
+  closedaohang: function () {
+    this.setData({ showdh: false })
+  },
+  gotowc: function () {
+    wx.navigateToMiniProgram({
+      appId: 'wx8e581a2d9a18fd3b'
+    })
+  },
+  gotoyijian: function () {
+    wx.navigateTo({
+      url: '../yijian/yijian'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

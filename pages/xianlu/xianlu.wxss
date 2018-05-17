@@ -1,0 +1,11 @@
+.xlview {
+  font-size: 28rpx;
+  color: 515151;
+  width: 96%;
+  margin: auto 2%;
+}
+
+.huaban {
+  width: 100%;
+  height: calc(210vh);
+}

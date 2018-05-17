@@ -4,3 +4,4 @@
 <view bindtouchstart="bindSearch" data-keywords="{{i.name}}" class="text_box" wx:for="{{tips}}" wx:for-item="i" wx:key="index">
   {{i.name}}
 </view>
+<include src="/daohang/dh.wxml" />

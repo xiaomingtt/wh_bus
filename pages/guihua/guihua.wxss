@@ -1,0 +1,107 @@
+.guihuahead {
+  width: 100vw;
+  height: 16vh;
+  background-color: rgba(210, 210, 210, 0.3);
+  padding-top: 1vh;
+}
+
+.qidianinput {
+  width: 98vw;
+  height: 7vh;
+  margin: auto 1vw 1vh 1vw;
+}
+
+.qidiantet {
+  float: left;
+  width: 18%;
+  height: 7vh;
+  line-height: 7vh;
+}
+
+.qidianxuznaze {
+  float: left;
+  width: 80%;
+  height: 6.8vh;
+  border: 1rpx solid #8d8d8d;
+  border-radius: 10rpx;
+}
+
+.qidiantitle {
+  height: 6.8vh;
+  float: left;
+  width: 60%;
+  font-size: 32rpx;
+  padding-left: 10rpx;
+}
+
+.qidianimage {
+  height: 6.8vh;
+  float: right;
+  margin-right: 1vw;
+}
+
+.qidianimage image {
+  width: 6.6vh;
+  height: 6.6vh;
+  margin: 0.1vh 1vw;
+}
+
+.buxing {
+  width: 90vw;
+  height: 100vh;
+  margin: 20vh 5vw;
+  color: #787878;
+}
+
+.buxing button {
+  margin-top: 3vh;
+}
+
+.guihuaview {
+  width: 100vw;
+  height: 83vh;
+}
+
+.guihuafangfa {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  width: 100vw;
+  height: 60rpx;
+  background-color: lightgrey;
+}
+
+.fangfaitem {
+  text-align: center;
+  width: 33.33vw;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.fangfaitem:nth-child(2) {
+  border-left: solid #8d8d8d 0.5rpx;
+  border-right: solid #8d8d8d 0.5rpx;
+}
+
+.selected {
+  color: #f00;
+}
+
+.lineitems {
+  width: 100vw;
+  height: calc(83vh - 61rpx);
+}
+
+.linelists {
+  width: calc(96vw - 30rpx);
+  height: 19%;
+  line-height: calc((83vh - 66rpx) / 5);
+  margin: auto 2vw;
+  border-bottom: solid 1rpx #8d8d8d;
+  padding: 0 15rpx;
+  font-size: 38rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

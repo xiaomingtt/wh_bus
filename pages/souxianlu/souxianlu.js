@@ -10,9 +10,22 @@ Page({
     zhongxin: '',//搜索的名称
     geshu: 0,//附近站点数量
     list: [],//返回的数据
-    gg: '暂无通知'
+    gg: '暂无通知',
+    showdh: true
   },
-
+  closedaohang: function () {
+    this.setData({ showdh: false })
+  },
+  gotowc: function () {
+    wx.navigateToMiniProgram({
+      appId: 'wx8e581a2d9a18fd3b'
+    })
+  },
+  gotoyijian: function () {
+    wx.navigateTo({
+      url: '../yijian/yijian'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -131,14 +144,19 @@ Page({
     var id = e.currentTarget.dataset.id
     var shuzu = this.data.list
     var liebiao = shuzu[id]
+    //数据库中站点坐标使用BD09坐标系，将其转为大地坐标系后使用
+    var jw = app.bd9_wgs84(liebiao.lat, liebiao.lon)
+    var j = jw.lng
+    var w = jw.lat
+
     var s = JSON.stringify(liebiao)
     d.push({
       width: 40,
       height: 40,
       iconPath: "/images/p.png",
       id: "10000",
-      latitude: liebiao.lat,
-      longitude: liebiao.lon,
+      latitude: w,
+      longitude: j,
       callout: {
         content: liebiao.name,
         color: "#b5b1b1",

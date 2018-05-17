@@ -1,4 +1,18 @@
 /* search.wxss */
 @import "/wxSearch/wxSearch.wxss";
 
+.searchlist {
+  font-size: 45rpx;
+  width: 100%;
+  height: 55rpx;
+  margin: 15rpx 5rpx;
+  border-bottom: 1rpx solid #8d8d8d;
+  overflow: auto;
+}
 
+.nosearch {
+  width: 100%;
+  height: 200rpx;
+  margin: 100rpx auto;
+  text-align: center;
+}

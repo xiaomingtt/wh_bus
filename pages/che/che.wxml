@@ -1,18 +1,18 @@
-<view style="font-size:28rpx;color:515151;width:96%;margin:auto 2%;">
+<view class="cheview">
   <text wx:if="{{xinxi.area==371000}}">威海</text>
   <text wx:if="{{xinxi.area==371081}}">文登</text>{{xinxi.lineName}}：由{{xinxi.startStationName}}发往{{xinxi.endStationName}}，{{xinxi.operationTime}}车辆信息每20秒更新一次。仅供参考具体信息以实际运营车辆为准。
 </view>
-<view style="width:96%;height:45rpx;margin:8rpx 2%;background-color:#ffc;">当前线路共有{{chenum}}辆车辆正在运营。</view>
+<view class="chetitle">当前线路共有{{chenum}}辆车辆正在运营。</view>
 <view wx:if="{{chenum>0}}">
   <block wx:for="{{cheinfo}}" wx:key="index">
-    <view style="font-size:45rpx;width:100%;height:165rpx;margin:15rpx 5rpx;border-bottom:1rpx solid #8d8d8d;overflow:auto;">
-      <view style="float:left;width:25%;height:100%;">
-        <view style="width:80rpx;height:80rpx;margin:10rpx auto;">
-          <image src="../../images/che.png" style="width:100%;height:100%;"></image>
+    <view class="cheitem">
+      <view class="cheleft">
+        <view class="cheimage">
+          <image src="../../images/che.png"></image>
         </view>
-        <view style="text-align:center;font-size:32rpx;">{{item.cardId}}</view>
+        <view class="checarid">{{item.cardId}}</view>
       </view>
-      <view style="float:left;width:73%;height:100%;font-size:40rpx;">
+      <view class="cheright">
         <view style="height:115rpx;">下一站点：{{xinxi.stations[item.stationSeqNum-1].stationName}}</view>
         <view style="height:45rpx;">当前速度：{{item.velocity}}Km/h</view>
       </view>
@@ -23,3 +23,4 @@
     </view>
   </block>
 </view>
+<include src="/daohang/dh.wxml" />

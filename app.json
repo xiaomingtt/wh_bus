@@ -11,7 +11,9 @@
     "pages/che/che",
     "pages/sousuo/sousuo",
     "pages/souxianlu/souxianlu",
-    "pages/zhanxian/zhanxian"
+    "pages/zhanxian/zhanxian",
+    "pages/guihua/guihua",
+    "pages/gui/gui"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -38,8 +40,8 @@
         "selectedIconPath": "images/z1.png"
       },
       {
-        "pagePath": "pages/yijian/yijian",
-        "text": "建议",
+        "pagePath": "pages/guihua/guihua",
+        "text": "规划",
         "iconPath": "images/y0.png",
         "selectedIconPath": "images/y1.png"
       }

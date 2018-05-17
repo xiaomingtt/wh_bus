@@ -9,6 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    showdh: true,
     imarkers: [],//地图上的标记点
     j: 122.071938,//地图中心点经度
     w: 37.233335,//地图中心点纬度
@@ -17,28 +18,40 @@ Page({
     polyline: [],//线路
     steps: {},//步行信息
     zhan: [],//站点及其附近线路信息，用于跳转到选择线路页面
-    tishi:''
+    tishi: ''
   },
-
+  closedaohang: function () {
+    this.setData({ showdh: false })
+  },
+  gotowc: function () {
+    wx.navigateToMiniProgram({
+      appId: 'wx8e581a2d9a18fd3b'
+    })
+  },
+  gotoyijian: function () {
+    wx.navigateTo({
+      url: '../yijian/yijian'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     var that = this
+    var dian = JSON.parse(options.data)
+    var lat = options.lat
+    var lon = options.lon
     if (options.from == "ditu") {
       //如果从地图页面跳转过来，获取点击的标记点
-      console.log(options.data)
-      var dian = JSON.parse(options.data)
-      var lat = options.lat
-      var lon = options.lon
+      var tu = "/images/now.png"
+    } else if (options.from == "guihua") {
+      var tu = "/images/qd.png"
     } else {
       //从查找站点页面过来
-      console.log(options.data)
-      var dian = JSON.parse(options.data)
-      var lat = options.lat
-      var lon = options.lon
+      var tu = "/images/now.png"
       var zhanxiang = JSON.parse(options.list)
-      that.setData({ zhan: zhanxiang,tishi:'(点击站点名，查看其附近线路。)' })
+      that.setData({ zhan: zhanxiang, tishi: '(点击站点名，查看其附近线路。)' })
     }
 
     var biaoji = that.data.imarkers
@@ -46,7 +59,7 @@ Page({
     biaoji.push({
       width: 40,
       height: 40,
-      iconPath: "/images/now.png",
+      iconPath: tu,
       id: "1",
       latitude: lat,
       longitude: lon,
@@ -82,6 +95,7 @@ Page({
             }
           }
         }
+        console.log(points)
         that.setData({
           polyline: [{
             points: points,

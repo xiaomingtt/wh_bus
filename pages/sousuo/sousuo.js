@@ -3,6 +3,7 @@ var amapFile = require('../../js/amap-wx.js');
 var config = require('../../js/config.js');
 var lonlat;//声明全局变量，纬度，经度
 var city;//声明全局变量，城市
+var laizi = ''//哪个页面转过来
 Page({
 
   /**
@@ -12,14 +13,28 @@ Page({
     tips: {},//高德地图
     longitude: 122.058187,
     latitude: 37.194463,
-    dwqx: true //定位权限
+    dwqx: true, //定位权限
+    showdh: true
   },
-
+  closedaohang: function () {
+    this.setData({ showdh: false })
+  },
+  gotowc: function () {
+    wx.navigateToMiniProgram({
+      appId: 'wx8e581a2d9a18fd3b'
+    })
+  },
+  gotoyijian: function () {
+    wx.navigateTo({
+      url: '../yijian/yijian'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var that = this
+    laizi = options.from
     wx.getLocation({
       //定位
       type: 'gcj02',
@@ -117,6 +132,7 @@ Page({
     })
   },
   bindSearch: function (e) {
+    var that = this
     var keywords = e.target.dataset.keywords;
     var u = 'https://restapi.amap.com/v3/geocode/geo?address=' + keywords + '&output=JSON&key=a07ec2dc5fdcfaf786df5e4d3a757627&city=威海'
     wx.request({
@@ -126,9 +142,19 @@ Page({
         if (d.status == 1 && d.count == 1) {
           var lonlata = d.geocodes[0].location
           var jw = lonlata.split(',')
-          wx.navigateTo({
-            url: '../souxianlu/souxianlu?re=t&m=' + keywords + '&lat=' + jw[1] + '&lon=' + jw[0]
-          })
+          if (laizi == 'zhan') {
+            wx.navigateTo({
+              url: '../souxianlu/souxianlu?re=t&m=' + keywords + '&lat=' + jw[1] + '&lon=' + jw[0]
+            })
+          } else {
+            that.setglobaldata('t', keywords, jw[1], jw[0]).then((code) => {
+              console.log(code)
+              wx.switchTab({
+                url: '../guihua/guihua'
+              })
+            }
+            )
+          }
         }
       }
     })
@@ -141,6 +167,15 @@ Page({
         that.setData({ dwqx: true })
         that.onLoad();
       }
+    })
+  },
+  setglobaldata(r, m, a, o) {
+    return new Promise((resolve, reject) => {
+      app.globalData.re = r
+      app.globalData.m = m
+      app.globalData.lat = a
+      app.globalData.lon = o
+      resolve('ok')
     })
   }
 })

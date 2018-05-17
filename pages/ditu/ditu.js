@@ -9,9 +9,7 @@ Page({
     longitude: 122.071938,
     latitude: 37.233335,
     markers: [],
-    dwqx: true,//定位权限
-
-
+    dwqx: true//定位权限
   },
 
   /**

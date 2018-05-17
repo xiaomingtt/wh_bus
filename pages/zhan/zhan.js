@@ -6,9 +6,22 @@ Page({
    */
   data: {
     dwqx: false,//是否具有定位权限
-    lishi: []//搜索历史
+    lishi: [],//搜索历史
+    showdh: true
   },
-
+  closedaohang: function () {
+    this.setData({ showdh: false })
+  },
+  gotowc: function () {
+    wx.navigateToMiniProgram({
+      appId: 'wx8e581a2d9a18fd3b'
+    })
+  },
+  gotoyijian: function () {
+    wx.navigateTo({
+      url: '../yijian/yijian'
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -88,7 +101,7 @@ Page({
   sousuozhandian: function (e) {
     // 搜索站点
     wx.navigateTo({
-      url: '../sousuo/sousuo',
+      url: '../sousuo/sousuo?from=zhan',
     })
   },
   dituxuandian: function (e) {

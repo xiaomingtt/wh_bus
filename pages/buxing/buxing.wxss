@@ -1,14 +1,35 @@
-#mmap{
-  width:100vw;
-  height:50vh;
+#mmap {
+  width: 100vw;
+  height: 50vh;
 }
-.flex-item.active{
-  color:#0091ff;
+
+.flex-item.active {
+  color: #0091ff;
 }
-.text_box{
+
+.text_box {
   margin: 0 15px;
   padding: 15px 0;
   border-bottom: 1px solid #c3c3c3;
   font-size: 13px;
 }
-.text_box .text_item{display:inline-block;line-height: 8px;}
+
+.text_box .text_item {
+  display: inline-block;
+  line-height: 8px;
+}
+
+.buxingview {
+  width: 100vw;
+  height: 50vh;
+}
+
+.bxview {
+  width: 100vw;
+  height: 4vh;
+  background-color: #8d8d8d;
+}
+
+.bxtext {
+  font-size: 24rpx;
+}

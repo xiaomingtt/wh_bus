@@ -1,44 +1,47 @@
-<view bindtap='goSearch' style="width:96%;height:calc(5vh);border:solid 1rpx #515151;margin:0 2%;text-align:center;border-radius:28rpx;color:#515151;">
-  <view style="float:left;width:43%;height:calc(3vh);margin:calc(1vh) auto;">
-    <image src='../../images/s.png' style='width:35rpx;height:35rpx;float:right;'></image>
+<include src="/daohang/dh.wxml" />
+<view class="gotosearch" bindtap='goSearch'>
+  <view class="gotosearchimg">
+    <image src='../../images/s.png'></image>
   </view>
-  <view style="float:right;width:56%;height:calc(3vh);margin:calc(1vh) auto;font-size:calc(3vh);">
-    <text style="float:left;">线路搜索</text>
+  <view class="gotosearchtext">
+    <text>线路搜索</text>
   </view>
 </view>
 
-<view style="display:flex;display: -webkit-flex;align-items:center;width:100%;height:calc(4vh);margin:3rpx auto;background-color:#ffc;font-size:26rpx;color:#666;" bindtap='viewgg'>
-  <image src='../../images/lb.png' style='width:42rpx;height:42rpx;'></image>
-  <text style="width:700rpx;overflow:hidden;text-overflow:ellipsis;white-space: nowrap;">{{gg}}</text>
+<view class="gonggao" bindtap='viewgg'>
+  <image src='../../images/lb.png'></image>
+  <text>{{gg}}</text>
 </view>
 
-<scroll-view scroll-y style="width:96%;height:calc(75vh);margin:0 2%;">
+<scroll-view class="mainviewscroll" scroll-y>
   <block wx:for="{{xianlu}}" wx:key="index">
-    <view style="font-size:45rpx;width:100%;height:65rpx;margin:15rpx 5rpx;border-bottom:1rpx solid #8d8d8d;overflow:auto;" data-id="{{item.id}}" data-name="{{item.lineName}}" bindtap='gotoXianLu'>
+    <view class="mainitem" data-id="{{item.id}}" data-name="{{item.lineName}}" bindtap='gotoXianLu'>
       {{item.lineName}}:{{item.startStationName}}-{{item.endStationName}}
     </view>
   </block>
 </scroll-view>
 
-<view style="width:96%;height:calc(14vh);border:solid 1rpx #8d8d8d;margin:0 2%;" >
-<swiper autoplay circular style="width:100%;height:100%;">
-  <block wx:for="{{imgUrls}}" wx:key="index">
-    <swiper-item>
-      <image src="{{item.tu}}" bindtap='callme' data-id='{{index}}' style="width:100%;height:calc(14vh);" />
-    </swiper-item>
-  </block>
-</swiper>
+<view class="adview" wx:if="{{showad}}">
+  <view class="adtitle">
+    <view class="adtext">广告</view>
+    <view class="adclose" bindtap='closead'>x</view>
+  </view>
+  <swiper autoplay circular>
+    <block wx:for="{{imgUrls}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item.tu}}" bindtap='callme' data-id='{{index}}' />
+      </swiper-item>
+    </block>
+  </swiper>
 </view>
 
 
-<view wx:if="{{showgg}}" style="position:fixed;z-index:99999;width:90%;height:calc(80vh);top:calc(10vh);left:37.5rpx;border-radius:35rpx;background-color:#ddd;">
-
-  <view style="background-color:#fff;width:55rpx;height:55rpx;float:right;margin:5rpx 10rpx;border-radius:35rpx;text-align:center;" bindtap='closegg'>X</view>
-
-  <scroll-view scroll-y style="clear:both;width:96%;height:calc(65vh);margin:10rpx 2%;">
+<view class="showggview" wx:if="{{showgg}}">
+  <view class="showggclose" bindtap='closegg'>X</view>
+  <scroll-view class="showggbody" scroll-y>
     {{ggbody}}
   </scroll-view>
-  <view style="color:#00f;width:100%;height:calc(4vh);font-size:32rpx;text-align:center;margin:calc(2vh) auto;" bindtap='showmoregg'>
-  <text style="border-bottom:1rpx solid #00f;">查看更多公告</text>
+  <view class="showmoregg" bindtap='showmoregg'>
+    <text>查看更多公告</text>
   </view>
 </view>

@@ -1,0 +1,67 @@
+<include src="/daohang/dh.wxml" />
+<view class="guihuahead">
+  <view class="qidianinput">
+    <view class="qidiantet">起点：</view>
+    <view class="qidianxuznaze">
+      <view class="qidiantitle" style="line-height:{{qlineheight}}vh;" data-code="qi" bindtap='shurudidian'>
+        {{qname}}
+      </view>
+      <view class="qidianimage">
+        <image src="../../images/x1.png" data-code="qi" bindtap='dituxd'></image>
+        <image src="../../images/location.png" data-code="qi" bindtap='bendidw'></image>
+      </view>
+    </view>
+  </view>
+  <view class="qidianinput">
+    <view class="qidiantet">终点：</view>
+    <view class="qidianxuznaze">
+      <view class="qidiantitle" style="line-height:{{zlineheight}}vh;" data-code="zhi" bindtap='shurudidian'>
+        {{zname}}
+      </view>
+      <view class="qidianimage">
+        <image src="../../images/x1.png" data-code="zhi" bindtap='dituxd'></image>
+        <image src="../../images/location.png" data-code="zhi" bindtap='bendidw'></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="buxing" wx:if="{{buxing}}">
+  <view>起点“{{qname}}”与终点“{{zname}}”之间直线距离不足500米，建议您步行前往。</view>
+  <button type="primary" bindtap='gotobuxing'>步行指引</button>
+</view>
+<view class="guihuaview" wx:if="{{bus}}" bindtouchstart="touchStart" bindtouchend="touchEnd">
+  <view class="guihuafangfa">
+    <view class="fangfaitem {{current==0?'selected':''}}" bindtap='selectline' data-id='0'>
+      最快捷
+    </view>
+    <view class="fangfaitem {{current==1?'selected':''}}" bindtap='selectline' data-id='1'>
+      少换乘
+    </view>
+    <view class="fangfaitem {{current==2?'selected':''}}" bindtap='selectline' data-id='2'>
+      少步行
+    </view>
+  </view>
+  <view class="lineitems" wx:if="{{current==0}}">
+    <block wx:for="{{zuikuai}}" wx:key="{{index}}">
+      <view class="linelists" data-id="{{index}}" bindtap='slineitem' data-type="0">
+        {{item}}
+      </view>
+    </block>
+  </view>
+  <view class="lineitems" wx:if="{{current==1}}">
+    <block wx:for="{{shaohuan}}" wx:key="{{index}}">
+      <view class="linelists" data-id="{{index}}" bindtap='slineitem' data-type="1">
+        {{item}}
+      </view>
+    </block>
+  </view>
+  <view class="lineitems" wx:if="{{current==2}}">
+    <block wx:for="{{shaozou}}" wx:key="{{index}}">
+      <view class="linelists" data-id="{{index}}" bindtap='slineitem' data-type="2">
+        {{item}}
+      </view>
+    </block>
+  </view>
+
+</view>

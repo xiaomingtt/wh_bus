@@ -23,8 +23,20 @@ App({
         that.globalData.screenheight = res.windowHeight
       }
     })
-    //var sss=that.jisuanjuli(37.233335, 122.071938, 37.23345, 122.07303)
-    //console.log(sss)
+  },
+  jisuanstrlength: function (val) {
+    //计算字符串中汉字长度（汉字长度为1，非汉字长度0.5）
+    var len = 0;
+    for (var i = 0; i < val.length; i++) {
+      var length = val.charCodeAt(i);
+      if (length >= 0 && length <= 255) {
+        len += 0.5;
+      }
+      else {
+        len++;
+      }
+    }
+    return len;
   },
   jisuanjuli: function (lat1, lng1, lat2, lng2) {
     //计算两个坐标点之间的直线距离
@@ -65,9 +77,15 @@ App({
   },
 
   globalData: {
-    dizhi: 'https://kkk.gg/GJC/',
+    dizhi: 'https://***/GJC/',
     screenwidth: 0,
-    screenheight: 0
+    screenheight: 0,
+    //下面4个为搜索地点（sousuo）传递到规划（guihua）页面的参数
+    re: 'no',//是否需要重新转换坐标系
+    m: 'no',//地点名称
+    lat: 0,//地点纬度
+    lon: 0//地点经度
+
   },
   transform: function (wgLat, wgLon) {
     //WGS84坐标转GCJ02坐标

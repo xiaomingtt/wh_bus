@@ -10,9 +10,10 @@
 
 <view class="itemview">
   <block wx:for="{{searchList}}" wx:key="index">
-    <view style="font-size:45rpx;width:100%;height:55rpx;margin:15rpx 5rpx;border-bottom:1rpx solid #8d8d8d;overflow:auto;" data-id="{{item.id}}" data-name="{{item.lineName}}" bindtap='gotoXianLu'>
-    {{item.lineName}}:{{item.startStationName}}-{{item.endStationName}}
+    <view class="searchlist" data-id="{{item.id}}" data-name="{{item.lineName}}" bindtap='gotoXianLu'>
+      {{item.lineName}}:{{item.startStationName}}-{{item.endStationName}}
     </view>
   </block>
 </view>
-<view wx:if="{{kong}}" style="width:100%;height:200rpx;margin:100rpx auto;text-align:center;">对不起，您搜索的线路不存在！</view>
+<view class="nosearch" wx:if="{{kong}}">对不起，您搜索的线路不存在！</view>
+<include src="/daohang/dh.wxml" />

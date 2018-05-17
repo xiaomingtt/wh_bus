@@ -1,14 +1,10 @@
-<view style="font-size:28rpx;color:515151;width:96%;margin:auto 2%;">
-<text wx:if="{{xinxi.area==371000}}">威海</text><text wx:if="{{xinxi.area==371081}}">文登</text>{{xinxi.lineName}}：由{{xinxi.startStationName}}发往{{xinxi.endStationName}}，{{xinxi.operationTime}}车辆信息每20秒更新一次。仅供参考具体信息以实际运营车辆为准。
+<view class="xlview">
+  <text wx:if="{{xinxi.area==371000}}">威海</text>
+  <text wx:if="{{xinxi.area==371081}}">文登</text>{{xinxi.lineName}}：由{{xinxi.startStationName}}发往{{xinxi.endStationName}}，{{xinxi.operationTime}}车辆信息每20秒更新一次。仅供参考具体信息以实际运营车辆为准。
 </view>
 
-<canvas style="width:100%;height:calc(210vh);" canvas-id="firstCanvas" binderror=''></canvas>
+<canvas class="huaban" canvas-id="firstCanvas"></canvas>
 
-
-
-
-
-    
 <view class="dianniu" style="background-color:#fff;">
   <view class="anniu" bindtap="gotoXL">
     <view>
@@ -16,7 +12,7 @@
     </view>
     <view style="color:#1296db;">
       线路
-    </view> 
+    </view>
   </view>
   <view class="anniu" bindtap="gotoZD">
     <view>
@@ -35,3 +31,4 @@
     </view>
   </view>
 </view>
+<include src="/daohang/dh.wxml" />

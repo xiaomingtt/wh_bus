@@ -4,11 +4,26 @@ const app = getApp()
 
 Page({
   data: {
+    showdh: true,
     xianlu: [],
     showgg: false,//是否显示公告
     gg: '公告',//公告标题
     ggbody: '',//公告内容
+    showad: true,//显示广告
     imgUrls: ['https://kkk.gg/WX/images/time.jpg', 'https://kkk.gg/GJC/ad.jpg']//首页底部滑块广告图片
+  },
+  closedaohang: function () {
+    this.setData({ showdh: false })
+  },
+  gotowc: function () {
+    wx.navigateToMiniProgram({
+      appId: 'wx8e581a2d9a18fd3b'
+    })
+  },
+  gotoyijian:function(){
+    wx.navigateTo({
+      url: '../yijian/yijian'
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -23,15 +38,32 @@ Page({
       }
     })
     wx.request({
-      url: app.globalData.dizhi + 'gaoggao.php',
-      data: { ks: 0, num: 1 },
+      url: app.globalData.dizhi + 'showwdgg.php',
+      data: { ks: 0, num: 1, mode: 's' },
       success: function (res) {
-        var s = res.data
-        console.log(s)
-        that.setData({
-          gg: s[0].title,
-          ggbody: s[0].content
-        })
+        if (res.data != 'no' && res.data.length != 0) {
+          console.log(res.data.length)
+          //var a = JSON.parse(res.data)
+          var a = res.data
+          that.setData({
+            gg: a[0].title,
+            ggbody: a[0].content
+          })
+          that.viewgg()
+        } else {
+          wx.request({
+            url: app.globalData.dizhi + 'gaoggao.php',
+            data: { ks: 0, num: 1 },
+            success: function (res) {
+              var s = res.data
+              console.log(s)
+              that.setData({
+                gg: s[0].title,
+                ggbody: s[0].content
+              })
+            }
+          })
+        }
       }
     })
   },
@@ -103,7 +135,7 @@ Page({
           wx.setStorageSync('hot', res.data)
         }
       })
-    }, 1500)
+    }, 1000)
   },
   gotoXianLu: function (e) {
     var id = e.currentTarget.dataset.id
@@ -158,5 +190,8 @@ Page({
         appId: img[id].zhi
       })
     }
+  },
+  closead: function (e) {
+    this.setData({ showad: false })
   }
 })

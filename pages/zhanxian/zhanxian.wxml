@@ -1,10 +1,11 @@
-<view style="width:96%;margin:8rpx 2%;background-color:#ddd;">公交站：{{ming}}共有{{num}}条线路。</view>
+<view class="zxhead">公交站：{{ming}}共有{{num}}条线路。</view>
 
 
-<scroll-view scroll-y style="width:96%;height:calc(75vh);margin:0 2%;">
+<scroll-view class="zxscrollview" scroll-y>
   <block wx:for="{{list}}" wx:key="index">
-    <view style="font-size:45rpx;width:100%;height:65rpx;margin:15rpx 5rpx;border-bottom:1rpx solid #8d8d8d;overflow:auto;" data-id="{{item.id}}" data-name="{{item.name}}" bindtap='gotoXianLu'>
+    <view class="zxitem" data-id="{{item.id}}" data-name="{{item.name}}" bindtap='gotoXianLu'>
       {{item.name}}:{{item.start}}-{{item.end}}
     </view>
   </block>
 </scroll-view>
+<include src="/daohang/dh.wxml" />

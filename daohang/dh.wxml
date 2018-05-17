@@ -1,0 +1,5 @@
+<view class="whbusdaohang" wx:if="{{showdh}}">
+  <view class="whbusclosedaohang" bindtap='closedaohang'>×</view>
+  <image src="/images/wc.png" bindtap='gotowc'></image>
+  <image src="/images/yj.png" bindtap='gotoyijian'></image>
+</view>

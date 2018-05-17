@@ -1,0 +1,37 @@
+.ssxxtt {
+  width: 96%;
+  margin: 8rpx 2%;
+  background-color: #ddd;
+}
+
+.ssxxscrollview {
+  width: 96%;
+  height: calc(80vh);
+  margin: 3rpx 2%;
+  background-color: #f0f0f0;
+}
+
+.ssxxitem {
+  font-size: 40rpx;
+  width: 100%;
+  height: 65rpx;
+  margin: 18rpx 5rpx;
+  border-bottom: 1rpx solid #8d8d8d;
+  overflow: auto;
+  background-color: #f0f0f0;
+}
+
+.ssxxname {
+  float: left;
+  width: 90%;
+}
+
+.ssxxwalk {
+  float: right;
+  width: 10%;
+}
+
+.ssxxwalk image {
+  width: 50rpx;
+  height: 50rpx;
+}

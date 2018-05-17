@@ -25,11 +25,12 @@
 
 <view class="title">历史记录</view>
 
-<scroll-view scroll-y style="width:96%;height:calc(70vh);margin:3rpx 2%;">
+<scroll-view class="zhanscrolllishi" scroll-y>
   <block wx:for="{{lishi}}" wx:key="index">
-    <view style="font-weight:bold; font-size:32rpx;width:100%;height:45rpx;margin:15rpx 5rpx;border-bottom:1rpx solid #8d8d8d;overflow:auto;" data-id="{{index}}" bindtap='gotoXianLu'>
+    <view class="zhanlishiitem" data-id="{{index}}" bindtap='gotoXianLu'>
       {{item.name}}
     </view>
 
   </block>
 </scroll-view>
+<include src="/daohang/dh.wxml" />

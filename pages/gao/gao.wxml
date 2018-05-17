@@ -1,21 +1,36 @@
-<scroll-view scroll-y style="width:100%;height:calc(100vh-120rpx);">
+<view>
+<view class="gaotitle">
+  <view class="gaotitlewh {{current==0?'on':''}}" bindtap='chengecurrent' data-id='0'>威海公交公告</view>
+  <view class="gaotitlewd {{current==1?'on':''}}" bindtap='chengecurrent' data-id='1'>文登公交公告</view>
+</view>
+
+
+<scroll-view class="gaoscrollview" wx:if="{{current==0}}" scroll-y bindscrolltoupper="xialashuaxin" bindscrolltolower="jixujiazai">
   <block wx:for="{{lists}}" wx:key="index">
-    <view data-id='{{item.id}}' style="width:96%;height:150rpx;margin:10rpx 2%;border-bottom:1rpx solid #8d8d8d;" bindtap='showgonggao'>
-      <view style="width:100%;height:105rpx;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;overflow: hidden;">{{item.title}}</view>
-      <view style="width:100%;height:35rpx;font-size:28rpx;">{{item.updateTime}}</view>
+    <view class="gaoitem" data-id='{{item.id}}' data-city="wh" bindtap='showgonggao'>
+      <view class="gaoitemtitle">{{item.title}}</view>
+      <view class="gaotitletime">{{item.updateTime}}</view>
     </view>
   </block>
 </scroll-view>
 
+<scroll-view class="gaoscrollview" wx:if="{{current==1}}" scroll-y bindscrolltoupper="xialashuaxin" bindscrolltolower="jixujiazai">
+  <block wx:for="{{items}}" wx:key="index">
+    <view class="gaoitem" data-id='{{index}}' data-city="wd" bindtap='showgonggao'>
+      <view class="gaoitemtitle">{{item.title}}</view>
+      <view class="gaotitletime">{{item.updateTime}}</view>
+    </view>
+  </block>
+</scroll-view>
+</view>
 
-<view wx:if="{{showgg}}" style="position:fixed;z-index:99999;width:90%;height:calc(80vh);top:calc(10vh);left:37.5rpx;border-radius:35rpx;background-color:#ddd;">
-
-  <view style="background-color:#fff;width:55rpx;height:55rpx;float:right;margin:5rpx 10rpx;border-radius:35rpx;text-align:center;" bindtap='closegg'>X</view>
-
-  <scroll-view scroll-y style="clear:both;width:96%;height:calc(65vh);margin:10rpx 2%;">
+<view class="gaotan" wx:if="{{showgg}}">
+  <view class="gaoguanbi" bindtap='closegg'>X</view>
+  <scroll-view class="gaobody" scroll-y>
     {{ggbody}}
   </scroll-view>
-  <view style="color:#00f;width:100%;height:calc(4vh);font-size:32rpx;text-align:center;margin:calc(2vh) auto;" bindtap='closegg'>
+  <view class="gaook" bindtap='closegg'>
     <button size='mini' type='primary'>确定</button>
   </view>
 </view>
+<include src="/daohang/dh.wxml" />

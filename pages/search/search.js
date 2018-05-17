@@ -8,9 +8,22 @@ Page({
   data: {
     searchList: [],
     kong: false,
-    searchtext: ''
+    searchtext: '',
+    showdh: true
   },
-
+  closedaohang: function () {
+    this.setData({ showdh: false })
+  },
+  gotowc: function () {
+    wx.navigateToMiniProgram({
+      appId: 'wx8e581a2d9a18fd3b'
+    })
+  },
+  gotoyijian: function () {
+    wx.navigateTo({
+      url: '../yijian/yijian'
+    })
+  },
   onShow: function () {
     var that = this
     var hot = wx.getStorageSync('hot') || []
